@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "abcde12345-abc1-1234-abcd-abcdefabcdef",
+    "name": "API de Programas",
+    "description": "Coleção Postman para testar a API de programas com autenticação",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar Programas",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer minha-chave-secreta",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/programas/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "programas"]
+        }
+      }
+    },
+    {
+      "name": "Buscar Programa por ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer minha-chave-secreta",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/programas/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "programas", "1"]
+        }
+      }
+    },
+    {
+      "name": "Criar Programa",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer minha-chave-secreta",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "nome", "value": "Programa de Teste", "type": "text" },
+            { "key": "descricao", "value": "Descrição do programa", "type": "text" },
+            { "key": "dataExibicao", "value": "2025-07-01", "type": "text" },
+            { "key": "horarioInicio", "value": "08:00", "type": "text" },
+            { "key": "horarioTermino", "value": "09:00", "type": "text" },
+            { "key": "imagemCapa", "type": "file", "src": "" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/programas/cadastro",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "programas", "cadastro"]
+        }
+      }
+    },
+    {
+      "name": "Atualizar Programa",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer minha-chave-secreta",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "nome", "value": "Programa Editado", "type": "text" },
+            { "key": "descricao", "value": "Nova descrição", "type": "text" },
+            { "key": "dataExibicao", "value": "2025-07-02", "type": "text" },
+            { "key": "horarioInicio", "value": "10:00", "type": "text" },
+            { "key": "horarioTermino", "value": "11:00", "type": "text" },
+            { "key": "imagemCapa", "type": "file", "src": "" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/programas/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "programas", "1"]
+        }
+      }
+    },
+    {
+      "name": "Deletar Programa",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer minha-chave-secreta",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/programas/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "programas", "1"]
+        }
+      }
+    }
+  ]
+}
