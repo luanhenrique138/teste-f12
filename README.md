@@ -44,7 +44,7 @@ Este projeto foi desenvolvido como parte de um processo seletivo, demonstrando h
 1. Clonar o Repositório
 	
 		git clone https://github.com/luanhenrique138/teste-f12.git
-		cd seu-repositorio
+		cd teste-f12
 		
 		
 2. Instalar as Dependências - Este comando irá instalar todas as dependências listadas no package.json.
