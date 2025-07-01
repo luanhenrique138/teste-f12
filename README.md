@@ -94,17 +94,34 @@ Execute os seguintes comandos do Sequelize CLI para criar a base de dados, rodar
 		npm start
 
 
-O servidor estará rodando em http://localhost:8080 (ou a porta que você configurou). Você verá uma mensagem de confirmação no terminal.
+O servidor estará rodando em http://localhost:8080/api/programas (ou a porta que você configurou). Você verá uma mensagem de confirmação no terminal.
 
-📡 Endpoints da API
-A URL base para todos os endpoints é http://localhost:8080/api.
+# 📂 Testes com Postman
 
-		Programas (/programas)
-		| Método | Endpoint | Descrição | Corpo (Body) de Exemplo |
-		| POST | /programas | Cria um novo programa. | { "nome": "Show da Manhã", "descricao": "Programa de variedades.", "dataExibicao": "2025-07-02", "horarioInicio": "09:00", "horarioTermino": "11:00" } |
-		| GET | /programas | Lista todos os programas cadastrados. | (Nenhum) |
-		| GET | /programas/{id} | Busca um programa pelo seu ID. | (Nenhum) |
-		| PUT | /programas/{id} | Atualiza um programa existente. | { "nome": "Show da Manhã - Ao Vivo" } |
-		| DELETE | /programas/{id} | Deleta um programa pelo seu ID. | (Nenhum) |
+Para facilitar os testes, o projeto já inclui uma coleção pronta do Postman localizada em.
+		
+  	DocApi/postman_collection.json
 
-Observação sobre upload de imagem: Para criar ou atualizar um programa com imagem, a requisição deve ser do tipo multipart/form-data, com os campos de texto e um campo do tipo file chamado imagemCapa.
+# ✅ Como testar a API:
+
+	1. Abra o [Postman](https://www.postman.com/)
+	2. Clique em **"Import"** ou ctrl + o e copie o conteudo do arquivo 
+	3. Selecione o arquivo:
+
+5. Após a importação, você verá os seguintes endpoints prontos para uso:
+	- ✔️ `GET /api/programas/` – Listar programas
+	- ✔️ `GET /api/programas/:id` – Buscar por ID
+	- ✔️ `POST /api/programas/cadastro` – Criar novo programa (com imagem)
+	- ✔️ `PUT /api/programas/:id` – Editar programa
+	- ✔️ `DELETE /api/programas/:id` – Deletar programa
+
+Observação caso não consiga importar a collection - sobre upload de imagem: Para criar ou atualizar um programa com imagem, a requisição deve ser do tipo multipart/form-data, com os campos de texto e um campo do tipo file chamado imagemCapa.
+
+
+### 🔐 Autenticação obrigatória
+
+Todas as requisições exigem um token estático:
+
+- Vá na aba **Authorization** de cada requisição
+- Tipo: **Bearer Token**
+- Token:  **minha-chave-secreta**
