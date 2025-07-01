@@ -15,7 +15,7 @@ export default (sequelize) => {
     dataExibicao: DataTypes.DATEONLY,
     horarioInicio: DataTypes.TIME,
     horarioTermino: DataTypes.TIME,
-    imagemCapa: DataTypes.TEXT
+    imagemCapa: DataTypes.TEXT('long')
   }, {
     sequelize,
     modelName: 'Programa',
