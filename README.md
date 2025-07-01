@@ -98,6 +98,8 @@ O servidor estará rodando em http://localhost:8080/api/programas (ou a porta qu
 
 # 📂 Testes com Postman
 
+### OBS: ANTES DE IMPORTAR É NECESSARIO FAZER LOGIN NO POSTMAN
+
 Para facilitar os testes, o projeto já inclui uma coleção pronta do Postman localizada em.
 		
   	DocApi/postman_collection.json
