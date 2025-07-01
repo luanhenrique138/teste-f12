@@ -44,14 +44,31 @@ const programaSchema = Yup.object().shape({
 class ProgramaController {
     static async index(req, res) {
         try {
-            const programas = await Programa.findAll();
-            if (!programas.length) {
-                return res.json({ message: "Nenhum programa cadastrado" });
+            const { nome, dataExibicao, horarioInicio, horarioTermino } = req.query;
+
+            const where = {};
+
+            if (nome) {
+                where.nome = { [Op.like]: `%${nome}%` }; // busca parcial
             }
+
+            if (dataExibicao) {
+                where.dataExibicao = dataExibicao;
+            }
+
+            const programas = await Programa.findAll({ where });
+
+            if (!programas.length) {
+                return res.json({ message: "Nenhum programa encontrado com os filtros aplicados." });
+            }
+
             return res.json(programas);
         } catch (error) {
-            console.error(error.message);
-            return res.status(500).json({ error: 'Erro ao buscar os programas', details: error.message });
+            console.error(error);
+            return res.status(500).json({
+                error: 'Erro ao buscar os programas',
+                details: error.message
+            });
         }
     }
 
