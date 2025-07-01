@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "seu_usuario_aqui",
+    "password": "123465",
+    "database": "nome_do_banco_de_dados",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

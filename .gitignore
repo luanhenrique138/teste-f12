@@ -1,0 +1,65 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs
+*.log
+*.log.*
+
+# dotenv environment files
+.env
+.env.*.local
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+.next/
+out/
+coverage/
+tmp/
+temp/
+config/config.json
+
+# IDEs
+.vscode/
+.idea/
+*.sw?
+
+# OS generated files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# TypeScript
+*.tsbuildinfo
+
+# Testing
+jest-cache/
+jest-test-results.json
+coverage/
+playwright-report/
+
+# GitHub Codespaces
+.devcontainer/
+
+# Optional npm cache directory
+.npm/
+
+# Local env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# Ignorar arquivos de ambiente
+.env
+.env.production
+.env.develop
+
