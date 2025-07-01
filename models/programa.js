@@ -1,19 +1,15 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+import { Model, DataTypes } from 'sequelize';
+
+// A função que define o modelo agora é exportada como padrão (default export)
+export default (sequelize) => {
   class Programa extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      // associações, se houver
     }
   }
+
   Programa.init({
+    // As definições dos campos permanecem as mesmas
     nome: DataTypes.STRING,
     descricao: DataTypes.STRING,
     dataExibicao: DataTypes.DATEONLY,
@@ -24,5 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Programa',
   });
+
   return Programa;
 };
