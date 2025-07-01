@@ -201,8 +201,7 @@ class ProgramaController {
                 return res.status(404).json({ error: 'Programa não encontrado' });
             }
 
-            // Validação de imagem (se enviada)
-            let imagemCapaBase64 = programa.imagemCapa; // mantém a anterior como default
+            let imagemCapaBase64 = programa.imagemCapa; 
 
             if (req.file) {
                 const { mimetype, size } = req.file;
@@ -226,18 +225,15 @@ class ProgramaController {
                 imagemCapaBase64 = `data:${mimetype};base64,${base64}`;
             }
 
-            // Dados combinados
             const dataToValidate = {
                 ...req.body,
                 imagemCapa: imagemCapaBase64 || '',
             };
 
-            // Validação
             await programaSchema.validate(dataToValidate, { abortEarly: false });
 
             const { dataExibicao, horarioInicio, horarioTermino } = dataToValidate;
 
-            // Conflito de horário (ignora o próprio ID)
             const conflito = await Programa.findOne({
                 where: {
                     id: { [Op.ne]: id },
@@ -258,7 +254,6 @@ class ProgramaController {
                 });
             }
 
-            // Atualiza
             await programa.update(dataToValidate);
             return res.status(200).json(programa);
 
